@@ -19,8 +19,10 @@ Learned how to submit the project to repository file.
 ### 2026.4.14
 
 Config Git Bash to Github(Using ssh keygen):
-  ssh-keygen -t ed25519 -C ""
-  cat ~/.ssh/id_ed25519.pub
+
+  `ssh-keygen -t ed25519 -C ""
+  cat ~/.ssh/id_ed25519.pub`
+  
   to serve the problem (kex_exchange_identification: read: Software caused connection abort
                        banner exchange: Connection to 20.205.243.166 port 22: Software caused connection abort):
                        
