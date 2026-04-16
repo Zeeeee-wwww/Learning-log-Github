@@ -33,7 +33,7 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
   .\install.bat
   ```
 
-3.3 环境激活
+###3.3 环境激活
 
 · Note: 由于 Python 未加入系统 PATH，日常开发需通过 ESP-IDF 导出的虚拟环境运行。
 · Activation Command:
@@ -42,7 +42,7 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
   .\export.bat
   ```
 
-4. 验证结果
+###4. 验证结果
 
 	```cmd
 	> idf.py --version
@@ -52,39 +52,39 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
 	Supported targets: esp32, esp32c3, esp32s2, esp32s3, esp32c6, esp32h2, esp32p4, ...
 	```
 
-5. 维护备忘 (For Future Reference)
+###5. 维护备忘 (For Future Reference)
 
 · Git Credential Manager 弹窗: 在拉取子模块时会出现，需提前准备好 GitHub 账号用于授权 OAuth，否则部分 components 拉取失败。
 · 离线备份建议: 建议压缩备份 C:\Users\<User>\.espressif\dist\ 目录，内含所有工具链压缩包，重装系统后可离线恢复。
 
 
 
-6.cmd终端进行“Hello world” 程序编译测试
+###6.cmd终端进行“Hello world” 程序编译测试
 
-6.1.激活环境：
+###6.1.激活环境：
 
 	```cmd
 	cd /d D:\Download\ESP-IDE\.espressif\v6.0\esp-idf
 	```
-6.2.设置走代理路线：
+###6.2.设置走代理路线：
 	
 	···cmd
 	git config --global http.proxy http://127.0.0.1:7890
 	git config --global https.proxy http://127.0.0.1:7890
 	```
-6.3.克隆整个项目文件夹:mkdir my_project && cd my_project
+###6.3.克隆整个项目文件夹:mkdir my_project && cd my_project
 
 	```cmd
 	cp -r $IDF_PATH/examples/get-started/hello_world/* .
 	rmdir /s /q build(删除命令，删除中间克隆一半失败的文件)
 	idf.py set-target esp32(指定目标)
 	```
-6.4.编译：idf.py build
+###6.4.编译：idf.py build
 
-7.配置VSCode环境变量：
-7.1.系统高级设置环境变量中添加新环境变量IDF_PATH，变量值是IDF安装文件夹下v6.0.
-7.2.VSCode内安装IDF插件
-7.3打开IDF插件，打开IDF扩展配置，添加IDF底层配置并安装
+###7.配置VSCode环境变量：
+###7.1.系统高级设置环境变量中添加新环境变量IDF_PATH，变量值是IDF安装文件夹下v6.0.
+###7.2.VSCode内安装IDF插件
+###7.3打开IDF插件，打开IDF扩展配置，添加IDF底层配置并安装
 
 ###8.安装CH340驱动
 
