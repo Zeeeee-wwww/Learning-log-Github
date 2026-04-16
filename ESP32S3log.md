@@ -1,7 +1,8 @@
 ```markdown
-## ESP-IDF v6.0 开发环境配置记录 (Windows 11)
 
-### 1. 环境概览
+ESP-IDF v6.0 开发环境配置记录 (Windows 11)
+
+###1. 环境概览
 - **OS**: Windows 11 (x86_64)
 - **ESP-IDF Version**: v6.0 (Release)
 - **Python Version**: 3.10.11 (System-wide override)
@@ -28,11 +29,11 @@
 - **现象**：执行 `install.bat` 后长时间停滞，报错 `WinError 10054` 远程主机强迫关闭连接，且 `xtensa-esp-elf` 包反复校验失败（Retry count expired）。
 - **原因**：Windows 命令行环境无法直接复用系统代理，且 GitHub 直连不稳定。
 - **Solution**: 采用乐鑫官方国内加速镜像，**无需开启系统代理**。
+  
   ```cmd
-  # 在 CMD 中执行（非 PowerShell）
   set IDF_GITHUB_ASSETS=dl.espressif.cn/github_assets
   .\install.bat
-```
+  ```
 
 3.3 环境激活
 
@@ -45,7 +46,7 @@
 
 4. 验证结果
 
-```text
+```cmd
 > idf.py --version
 ESP-IDF v6.0
 
@@ -58,16 +59,34 @@ Supported targets: esp32, esp32c3, esp32s2, esp32s3, esp32c6, esp32h2, esp32p4, 
 · Git Credential Manager 弹窗: 在拉取子模块时会出现，需提前准备好 GitHub 账号用于授权 OAuth，否则部分 components 拉取失败。
 · 离线备份建议: 建议压缩备份 C:\Users\<User>\.espressif\dist\ 目录，内含所有工具链压缩包，重装系统后可离线恢复。
 
-```
+
 
 6.cmd终端进行“Hello world” 程序编译测试
 
-	1.激活环境：cd /d D:\Download\ESP-IDE\.espressif\v6.0\esp-idf
-	2.设置走代理路线：git config --global http.proxy http://127.0.0.1:7890
-				     git config --global https.proxy http://127.0.0.1:7890
-	3.克隆整个项目文件夹:mkdir my_project && cd my_project
-			         	    cp -r $IDF_PATH/examples/get-started/hello_world/* .
-					    rmdir /s /q build(删除命令，删除中间克隆一半失败的文件)
-					idf.py set-target esp32(指定目标)
-	4.编译：idf.py build
+6.1.激活环境：
+	
+	cd /d D:\Download\ESP-IDE\.espressif\v6.0\esp-idf
+6.2.设置走代理路线：
+	···cmd
+	git config --global http.proxy http://127.0.0.1:7890
+	git config --global https.proxy http://127.0.0.1:7890
+	```
+6.3.克隆整个项目文件夹:mkdir my_project && cd my_project
+
+	```cmd
+	cp -r $IDF_PATH/examples/get-started/hello_world/* .
+	rmdir /s /q build(删除命令，删除中间克隆一半失败的文件)
+	idf.py set-target esp32(指定目标)
+	```
+6.4.编译：idf.py build
+
+7.配置VSCode环境变量：
+7.1.系统高级设置环境变量中添加新环境变量IDF_PATH，变量值是IDF安装文件夹下v6.0.
+7.2.VSCode内安装IDF插件
+7.3打开IDF插件，打开IDF扩展配置，添加IDF底层配置并安装
+
+###8.安装CH340驱动
+
+官方网址：https://www.wch.cn/downloads/CH341SER_EXE.html（直接进入网站下载安装）
+
 						
