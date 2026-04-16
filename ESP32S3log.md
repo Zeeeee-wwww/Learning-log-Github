@@ -33,7 +33,7 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
   ```cmd
   set IDF_GITHUB_ASSETS=dl.espressif.cn/github_assets
   .\install.bat
-  ```
+  
 
 3.3 环境激活
 
