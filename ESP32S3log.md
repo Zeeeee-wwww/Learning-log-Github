@@ -1,15 +1,13 @@
-```markdown
-
 ESP-IDF v6.0 开发环境配置记录 (Windows 11)
 
-###1. 环境概览
+1. 环境概览
 - **OS**: Windows 11 (x86_64)
 - **ESP-IDF Version**: v6.0 (Release)
 - **Python Version**: 3.10.11 (System-wide override)
 - **Installation Path**: `D:\Download\ESP-IDE\.espressif\v6.0\esp-idf`
 - **Configuration Date**: 2026-04-14
 
-### 2. Python 环境决策与配置 (Key Decision)
+2. Python 环境决策与配置 (Key Decision)
 经过对比测试，放弃使用 `pyenv-win` 进行多版本管理，原因如下：
 - `pyenv-win` 在 PowerShell 环境下存在版本定义更新滞后的问题（`definition not found`）。
 - Windows 下官网 `installer` 的路径隔离比 `pyenv` 的 shims 机制更稳定，尤其是对于 ESP-IDF 这种强依赖注册表/环境变量的工具链。
@@ -33,7 +31,7 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
   ```cmd
   set IDF_GITHUB_ASSETS=dl.espressif.cn/github_assets
   .\install.bat
-  
+  ```
 
 3.3 环境激活
 
@@ -46,13 +44,13 @@ ESP-IDF v6.0 开发环境配置记录 (Windows 11)
 
 4. 验证结果
 
-```cmd
-> idf.py --version
-ESP-IDF v6.0
+	```cmd
+	> idf.py --version
+	ESP-IDF v6.0
 
-> idf.py set-target
-Supported targets: esp32, esp32c3, esp32s2, esp32s3, esp32c6, esp32h2, esp32p4, ...
-```
+	> idf.py set-target
+	Supported targets: esp32, esp32c3, esp32s2, esp32s3, esp32c6, esp32h2, esp32p4, ...
+	```
 
 5. 维护备忘 (For Future Reference)
 
@@ -64,9 +62,12 @@ Supported targets: esp32, esp32c3, esp32s2, esp32s3, esp32c6, esp32h2, esp32p4, 
 6.cmd终端进行“Hello world” 程序编译测试
 
 6.1.激活环境：
-	
+
+	```cmd
 	cd /d D:\Download\ESP-IDE\.espressif\v6.0\esp-idf
+	```
 6.2.设置走代理路线：
+	
 	···cmd
 	git config --global http.proxy http://127.0.0.1:7890
 	git config --global https.proxy http://127.0.0.1:7890
